@@ -1,5 +1,5 @@
 import { createGlobalStyle, ThemeProvider } from "styled-components";
-import Chat from "./Chat";
+import Chat from "./components/Chat";
 
 const GlobalStyle = createGlobalStyle`
   body {
