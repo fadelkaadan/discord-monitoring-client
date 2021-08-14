@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { createGlobalStyle, ThemeProvider } from "styled-components";
+import Chat from "./Chat";
 
-function App() {
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0px;
+    padding: 0px;
+    font-family: roboto;
+    background-color: #1d1d1d;
+  }
+`;
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={{}}>
+      <GlobalStyle />
+      <div className="App">
+        <Chat />
+      </div>
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
