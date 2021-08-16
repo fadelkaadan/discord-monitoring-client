@@ -1,28 +1,10 @@
 import { useEffect, useState } from "react";
+import { Message as DiscordMessage } from "discord.js";
 import styled from "styled-components";
+import { axiosInstance as axios } from "../../api/discord";
 import Message from "../Message";
-
-type MsgType = {
-  content: String;
-};
-
-const data: MsgType[] = [
-  {
-    content: "msg 1",
-  },
-  {
-    content: "msg 2",
-  },
-  {
-    content: "msg 3",
-  },
-  {
-    content: "msg 4",
-  },
-  {
-    content: "msg 5",
-  },
-];
+import RefreshButton from "../RefreshButton";
+import Nav from "../Nav";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -36,17 +18,38 @@ const Header = styled.h1`
 `;
 
 const Chat = () => {
-  const [messages, setMessages] = useState<MsgType[]>([]);
+  const [messages, setMessages] = useState<DiscordMessage[]>([]);
+
+  const deleteMessage = async (id: String) => {
+    const updatedMessages = messages.filter((msg) => msg.id !== id);
+    setMessages(updatedMessages);
+    await axios.delete(`/messages/${id}`);
+  };
 
   useEffect(() => {
-    setMessages(data);
+    const fetchData = async () => {
+      const response = await axios.get("/messages");
+      setMessages(response.data.data);
+    };
+    fetchData();
   }, []);
+
+  const refresh = async () => {
+    const response = await axios.get("/messages");
+    setMessages(response.data.data);
+  };
 
   return (
     <Wrapper>
       <Header>Discord Monitoring</Header>
-      {messages.map((msg: any) => (
-        <Message content={msg.content} />
+      <Nav />
+      <RefreshButton onClick={refresh} />
+      {messages.map((msg: DiscordMessage) => (
+        <Message
+          key={msg.id}
+          content={msg.content}
+          onClick={() => deleteMessage(msg.id)}
+        />
       ))}
     </Wrapper>
   );

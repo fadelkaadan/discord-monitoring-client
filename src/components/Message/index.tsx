@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 interface MessageProps {
   content: String;
+  onClick: () => Promise<void>;
 }
 
 const Wrapper = styled.div`
@@ -24,13 +25,18 @@ const Button = styled.button`
   height: 30px;
   width: 30px;
   border-radius: 50%;
+
+  :hover {
+    background-color: #e44e4e;
+    cursor: pointer;
+  }
 `;
 
-const Message = ({ content }: MessageProps) => {
+const Message = ({ content, onClick }: MessageProps) => {
   return (
     <Wrapper>
       <p>{content}</p>
-      <Button>x</Button>
+      <Button onClick={onClick}>x</Button>
     </Wrapper>
   );
 };
