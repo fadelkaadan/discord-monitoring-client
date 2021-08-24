@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
-import Messages from "../Messages";
-import FlaggedMessages from "../FlaggedMessages";
+import MessagesList from "../MessagesList";
+import CensoredWordsList from "../CensoredWordsList";
+import FlaggedMessagesList from "../FlaggedMessagesList";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -33,12 +34,26 @@ const Header = styled.h1`
 enum MessagesTypeEnum {
   normal,
   flagged,
+  words,
 }
 
 const Chat = () => {
   const [messagesType, setMessagesType] = useState<MessagesTypeEnum>(
     MessagesTypeEnum.normal
   );
+
+  const renderList = () => {
+    switch (messagesType) {
+      case MessagesTypeEnum.normal:
+        return <MessagesList />;
+      case MessagesTypeEnum.flagged:
+        return <FlaggedMessagesList />;
+      case MessagesTypeEnum.words:
+        return <CensoredWordsList />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <Wrapper>
@@ -50,13 +65,11 @@ const Chat = () => {
         <Button onClick={() => setMessagesType(MessagesTypeEnum.flagged)}>
           Flagged Messages
         </Button>
+        <Button onClick={() => setMessagesType(MessagesTypeEnum.words)}>
+          Censored Words
+        </Button>
       </Nav>
-
-      {messagesType === MessagesTypeEnum.normal ? (
-        <Messages />
-      ) : (
-        <FlaggedMessages />
-      )}
+      {renderList()}
     </Wrapper>
   );
 };

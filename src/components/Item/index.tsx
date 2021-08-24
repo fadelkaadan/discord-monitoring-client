@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-interface MessageProps {
+interface ItemProps {
   content: String;
   onClick?: () => Promise<void>;
 }
@@ -32,7 +32,7 @@ const Button = styled.button`
   }
 `;
 
-const Message = ({ content, onClick }: MessageProps) => {
+const Item = ({ content, onClick }: ItemProps) => {
   return (
     <Wrapper>
       <p>{content}</p>
@@ -41,4 +41,4 @@ const Message = ({ content, onClick }: MessageProps) => {
   );
 };
 
-export default Message;
+export default Item;

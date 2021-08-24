@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Message as DiscordMessage } from "discord.js";
 import styled from "styled-components";
 import { axiosInstance as axios } from "../../api/discord";
-import Message from "../Message";
+import Item from "../Item";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const Messages = () => {
+const MessagesList = () => {
   const [messages, setMessages] = useState<DiscordMessage[] | any[]>([]);
 
   const deleteMessage = async (id: String) => {
@@ -23,7 +23,6 @@ const Messages = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get("/messages");
-      console.log(response);
       setMessages(response.data.data);
     };
     fetchData();
@@ -32,7 +31,7 @@ const Messages = () => {
   return (
     <Wrapper>
       {messages.map((msg: DiscordMessage) => (
-        <Message
+        <Item
           key={msg.id}
           content={msg.content}
           onClick={() => deleteMessage(msg.id)}
@@ -42,4 +41,4 @@ const Messages = () => {
   );
 };
 
-export default Messages;
+export default MessagesList;

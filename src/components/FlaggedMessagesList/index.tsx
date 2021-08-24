@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Message as DiscordMessage } from "discord.js";
 import { axiosInstance as axios } from "../../api/discord";
-import Message from "../Message";
+import Item from "../Item";
 
-const FlaggedMessages = () => {
+const FlaggedMessagesList = () => {
   const [messages, setMessages] = useState<any[]>([]);
 
   const deleteMessage = async (id: String) => {
@@ -23,7 +23,7 @@ const FlaggedMessages = () => {
   return (
     <>
       {messages.map((msg: DiscordMessage) => (
-        <Message
+        <Item
           key={msg.id}
           content={msg.content}
           onClick={() => deleteMessage(msg.id)}
@@ -33,4 +33,4 @@ const FlaggedMessages = () => {
   );
 };
 
-export default FlaggedMessages;
+export default FlaggedMessagesList;
