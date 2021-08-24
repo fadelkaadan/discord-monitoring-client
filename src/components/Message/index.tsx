@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 interface MessageProps {
   content: String;
-  onClick: () => Promise<void>;
+  onClick?: () => Promise<void>;
 }
 
 const Wrapper = styled.div`
