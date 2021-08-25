@@ -1,7 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
 import MessagesList from "../MessagesList";
-import CensoredWordsList from "../CensoredWordsList";
 import FlaggedMessagesList from "../FlaggedMessagesList";
 
 const Wrapper = styled.div`
@@ -48,8 +47,6 @@ const Chat = () => {
         return <MessagesList />;
       case MessagesTypeEnum.flagged:
         return <FlaggedMessagesList />;
-      case MessagesTypeEnum.words:
-        return <CensoredWordsList />;
       default:
         return null;
     }
@@ -64,9 +61,6 @@ const Chat = () => {
         </Button>
         <Button onClick={() => setMessagesType(MessagesTypeEnum.flagged)}>
           Flagged Messages
-        </Button>
-        <Button onClick={() => setMessagesType(MessagesTypeEnum.words)}>
-          Censored Words
         </Button>
       </Nav>
       {renderList()}
