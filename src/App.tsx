@@ -1,5 +1,8 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
-import Chat from "./components/Chat";
+import Nav from "./components/Nav";
+import CensoredWords from "./views/CensoredWords";
+import FlaggedMessages from "./views/FlaggedMessages";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -8,16 +11,25 @@ const GlobalStyle = createGlobalStyle`
     font-family: roboto;
     background-color: #1d1d1d;
   }
+  * {
+    box-sizing: border-box;
+  }
 `;
 
 const App = () => {
   return (
-    <ThemeProvider theme={{}}>
-      <GlobalStyle />
-      <div className="App">
-        <Chat />
-      </div>
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider theme={{}}>
+        <GlobalStyle />
+        <div className="App">
+          <Nav />
+          <Routes>
+            <Route path="/" element={<FlaggedMessages />} />
+            <Route path="censored-words" element={<CensoredWords />} />
+          </Routes>
+        </div>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 };
 
