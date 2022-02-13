@@ -7,7 +7,6 @@ const Wrapper = styled.div`
 `;
 
 const CensoredWords = () => {
-
   return (
     <Wrapper>
       <List />

@@ -26,6 +26,8 @@ const MessagesList = () => {
       }
     };
     fetchMessages();
+
+    return setMessages([]);
   }, []);
 
   const handleIgnore = async (msgId: string) => {

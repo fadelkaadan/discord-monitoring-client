@@ -24,6 +24,8 @@ const List = () => {
       }
     };
     fetchWords();
+
+    return setWords([]);
   }, []);
 
   const createWord = async (value: string) => {
