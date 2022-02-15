@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Message Should match the snapshot 1`] = `
+<div
+  class="sc-bdnxRM gFNacz"
+>
+  <p
+    class="sc-gtsrHT"
+  >
+    test content
+  </p>
+  <div
+    class="sc-dlnjwi GCjvm"
+  >
+    <button
+      class="sc-hKFxyN glSunK"
+    >
+      Ignore
+    </button>
+    <button
+      class="sc-hKFxyN sc-eCApnc glSunK jjkkFJ"
+    >
+      Delete
+    </button>
+  </div>
+</div>
+`;
