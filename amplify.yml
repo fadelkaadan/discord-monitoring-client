@@ -2,7 +2,7 @@ test:
   phases:
     preTest:
       commands:
-        - npm install
+        - yarn
     test:
       commands:
-        - npm run test
+        - yarn run test
