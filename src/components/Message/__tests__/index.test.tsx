@@ -40,6 +40,6 @@ describe("Message", () => {
       />
     );
     const buttons = screen.getAllByRole("button");
-    expect(buttons.length).toEqual(2);
+    expect(buttons.length).toEqual(1);
   });
 });
