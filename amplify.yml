@@ -1,0 +1,5 @@
+test:
+  phases:
+    test:
+      commands:
+        - npm run test
