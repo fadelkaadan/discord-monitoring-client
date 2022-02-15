@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Entries from "../Entries";
-import { axiosInstance as axios } from "../../api/discord";
+import { axiosInstance as axios } from "../../api/axiosInstance";
 
 interface IWord {
   id: any;
@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   max-width: 1000px;
 `;
 
-const List = () => {
+const CensoredWordsList = () => {
   const [words, setWords] = useState<IWord[]>([]);
 
   useEffect(() => {
@@ -58,4 +58,4 @@ const List = () => {
   );
 };
 
-export default List;
+export default CensoredWordsList;

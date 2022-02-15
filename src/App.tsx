@@ -23,7 +23,6 @@ const App = () => {
         <GlobalStyle />
         <div className="App">
           <Nav />
-          {console.log(process.env.REACT_APP_BASE_URL)}
           <Routes>
             <Route path="/" element={<FlaggedMessages />} />
             <Route path="censored-words" element={<CensoredWords />} />

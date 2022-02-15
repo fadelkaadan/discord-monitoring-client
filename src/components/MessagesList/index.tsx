@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { axiosInstance as axios } from "../../api/discord";
+import { axiosInstance as axios } from "../../api/axiosInstance";
 import Message from "../Message";
 
 interface IMessage {

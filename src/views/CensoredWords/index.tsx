@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import List from "../../components/List";
+import CensoredWordsList from "../../components/CensoredWordsList";
 
 const Wrapper = styled.div`
   display: flex;
@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 const CensoredWords = () => {
   return (
     <Wrapper>
-      <List />
+      <CensoredWordsList />
     </Wrapper>
   );
 };
