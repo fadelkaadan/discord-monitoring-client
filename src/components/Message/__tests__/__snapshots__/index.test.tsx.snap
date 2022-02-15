@@ -2,23 +2,23 @@
 
 exports[`Message Should match the snapshot 1`] = `
 <div
-  class="sc-bdnxRM gFNacz"
+  class="sc-bdvvtL ilaumJ"
 >
   <p
-    class="sc-gtsrHT"
+    class="sc-gsDKAQ"
   >
     test content
   </p>
   <div
-    class="sc-dlnjwi GCjvm"
+    class="sc-dkPtRN cgynxk"
   >
     <button
-      class="sc-hKFxyN glSunK"
+      class="sc-hKwDye bmqeFH"
     >
       Ignore
     </button>
     <button
-      class="sc-hKFxyN sc-eCApnc glSunK jjkkFJ"
+      class="sc-hKwDye sc-eCImPb bmqeFH ecInFQ"
     >
       Delete
     </button>
