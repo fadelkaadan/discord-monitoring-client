@@ -1,8 +1,0 @@
-test:
-  phases:
-    preTest:
-      commands:
-        - yarn
-    test:
-      commands:
-        - yarn run test
