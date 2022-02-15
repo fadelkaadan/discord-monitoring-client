@@ -28,4 +28,18 @@ describe("Message", () => {
     const content: HTMLElement = screen.getByText(dummyContent);
     expect(content.textContent).toEqual(dummyContent);
   });
+
+  it("Should render two buttons", () => {
+    const dummyContent = "test content";
+    render(
+      <Message
+        id="1"
+        content={dummyContent}
+        handleIgnore={() => {}}
+        handleDelete={() => {}}
+      />
+    );
+    const buttons = screen.getAllByRole("button");
+    expect(buttons.length).toEqual(1);
+  });
 });
