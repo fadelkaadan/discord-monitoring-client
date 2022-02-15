@@ -18,7 +18,7 @@ const List = () => {
 
   useEffect(() => {
     const fetchWords = async () => {
-      const fetchedWords: any = await axios.get("/censoredWords");
+      const fetchedWords: any = await axios.get("/censoredWords/");
       if (fetchedWords.data) {
         setWords(fetchedWords.data);
       }
